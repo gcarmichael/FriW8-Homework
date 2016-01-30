@@ -2,7 +2,7 @@ var expect = require('chai').expect;
 var _ = require('lodash');
 
 var Record = require('./record');
-var RecordStore = require('./record_store');
+var Store = require('./record_store');
 
 describe('Record', function(){
   it('should have an artist, title and price', function(){
@@ -31,7 +31,7 @@ describe('Record Store', function(){
 
       expect(store1.name).to.equal('Bass');
       expect(store1.city).to.equal('Edinburgh');
-      expect(store1.inventory).to.exist
+      expect(store1.inventory).to.exist;
     });
 
     it('should be able to have multiple records in its inventory', function(){
@@ -62,7 +62,7 @@ describe('Record Store', function(){
       var store1 = new Store('Bass', 'Edinburgh');
 
       store1.addRecord(record1);
-      expect(store1.listInventory).to.equal('Item 1: Michael Jackson - Thriller, 7.99');
+      expect(store1.listInventory()).to.equal('Record 1: Michael Jackson - Thriller, 7.99');
     });
 
     it("should be able to sell a record, removing it from its inventory and adding that record's price to the balance", function(){
