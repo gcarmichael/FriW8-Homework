@@ -94,7 +94,6 @@ describe('Record Store', function(){
       store1.addRecord(record2);
       store1.addRecord(record3);
 
-      // console.log(store1.finances());
       expect(store1.finances()).to.equal("Bass - Balance: 1000, Inventory Value: 26.97\nTotal: 1026.97");
     });
 });
@@ -105,9 +104,8 @@ describe('Record Collector', function(){
 
     expect(collector1.name).to.equal('Chris');
     expect(collector1.collection).to.be.empty;
-    // What should this be? An array of variables of records?
+  });
 
-  })
   it('should be able to buy a record', function(){
     var collector1 = new Collector('Chris');
 
