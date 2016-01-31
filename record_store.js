@@ -20,6 +20,13 @@ Store.prototype = {
       result = ("Record " + [i+1] + ": " + this.inventory[i].artist + " - " + this.inventory[i].title + ", " + this.inventory[i].price);
     }
     return result;
+  },
+  finances: function(){
+    total = 0
+    for(record of this.inventory){
+      total += record.price
+    }
+    return this.name + " - Balance: " + this.balance + ", Inventory Value: " + total + "\nTotal: " + (this.balance+total);
   }
 };
 

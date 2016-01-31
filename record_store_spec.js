@@ -93,7 +93,8 @@ describe('Record Store', function(){
       store1.addRecord(record2);
       store1.addRecord(record3);
 
-      expect(store1.finances).to.equal("Bass - Balance: 1000, Inventory Value: 26.97");
+      // console.log(store1.finances());
+      expect(store1.finances()).to.equal("Bass - Balance: 1000, Inventory Value: 26.97\nTotal: 1026.97");
     });
 });
 
