@@ -116,13 +116,13 @@ describe('Record Collector', function(){
     var record3 = new Record('Adele', '25', 9.99);
 
     var store1 = new Store('Bass', 'Edinburgh');
-    store1.balance = 1000;
 
     store1.addRecord(record1);
     store1.addRecord(record2);
     store1.addRecord(record3);
 
     collector1.buy(store1, record1);
+    expect(collector1.collection[0].title).to.equal('Anti');
   });
 
   it('should be able to sell a record', function(){
@@ -131,15 +131,14 @@ describe('Record Collector', function(){
     var record3 = new Record('Adele', '25', 9.99);
 
     var collector1 = new Collector('Chris');
-    collector1.collection = [{record1}];
 
     var store1 = new Store('Bass', 'Edinburgh');
-    store1.balance = 1000;
 
     store1.addRecord(record1);
     store1.addRecord(record2);
     store1.addRecord(record3);
 
+    collector1.buy(store1, record1);
     collector1.sell(store1, record1);
   });
 });
