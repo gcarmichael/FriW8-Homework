@@ -3,6 +3,7 @@ var _ = require('lodash');
 
 var Record = require('./record');
 var Store = require('./record_store');
+var Collector = require('./record_collector');
 
 describe('Record', function(){
   it('should have an artist, title and price', function(){
@@ -100,15 +101,15 @@ describe('Record Store', function(){
 
 describe('Record Collector', function(){
   it('should have a name, and a collection', function(){
-    var recordCollector1 = new RecordCollector('Chris');
+    var collector1 = new Collector('Chris');
 
-    expect(recordCollector1.name).to.equal('Chris');
-    expect(recordCollector1.collection).to.be.empty;
+    expect(collector1.name).to.equal('Chris');
+    expect(collector1.collection).to.be.empty;
     // What should this be? An array of variables of records?
 
   })
   it('should be able to buy a record', function(){
-    var recordCollector1 = new RecordCollector('Chris');
+    var collector1 = new Collector('Chris');
 
     var record1 = new Record('Rihanna', 'Anti', 8.99);
     var record2 = new Record('Michael Jackson', 'Thriller', 7.99);
@@ -121,7 +122,7 @@ describe('Record Collector', function(){
     store1.addRecord(record2);
     store1.addRecord(record3);
 
-    recordCollector1.buy(store1, record1);
+    collector1.buy(store1, record1);
   });
 
   it('should be able to sell a record', function(){
@@ -129,8 +130,8 @@ describe('Record Collector', function(){
     var record2 = new Record('Michael Jackson', 'Thriller', 7.99);
     var record3 = new Record('Adele', '25', 9.99);
 
-    var recordCollector1 = new RecordCollector('Chris');
-    recordCollector1.collection = [{record1}];
+    var collector1 = new Collector('Chris');
+    collector1.collection = [{record1}];
 
     var store1 = new Store('Bass', 'Edinburgh');
     store1.balance = 1000;
@@ -139,6 +140,6 @@ describe('Record Collector', function(){
     store1.addRecord(record2);
     store1.addRecord(record3);
 
-    recordCollector1.sell(store1, record1);
+    collector1.sell(store1, record1);
   });
 });
