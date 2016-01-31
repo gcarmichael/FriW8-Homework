@@ -60,10 +60,13 @@ describe('Record Store', function(){
 
     it('should be able to list its inventory', function(){
       var record1 = new Record('Michael Jackson', 'Thriller', 7.99);
+      var record2 = new Record('Rihanna', 'Anti', 8.99);
       var store1 = new Store('Bass', 'Edinburgh');
 
       store1.addRecord(record1);
-      expect(store1.listInventory()).to.equal('Record 1: Michael Jackson - Thriller, 7.99');
+      store1.addRecord(record2);
+      
+      expect(store1.listInventory()).to.equal('Record 1: Michael Jackson - Thriller, 7.99\nRecord 2: Rihanna - Anti, 8.99\n');
     });
 
     it("should be able to sell a record, removing it from its inventory and adding that record's price to the balance", function(){

@@ -16,8 +16,9 @@ Store.prototype = {
     this.balance += record.price;
   },
   listInventory: function(){
-    for (var i = 0; i < this.inventory.length; i+= 1) {
-      result = ("Record " + [i+1] + ": " + this.inventory[i].artist + " - " + this.inventory[i].title + ", " + this.inventory[i].price);
+    var result = "";
+    for(var i = 0; i < this.inventory.length; i+= 1) {
+      result += ("Record " + [i+1] + ": " + this.inventory[i].artist + " - " + this.inventory[i].title + ", " + this.inventory[i].price + "\n");
     }
     return result;
   },
