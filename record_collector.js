@@ -9,6 +9,10 @@ Collector.prototype = {
   buy: function(store, record){
     this.collection.push(record);
     store.sellRecord(record);
+  },
+  sell: function(store, record){
+    _.remove(this.collection,record);
+    store.addRecord(record);
   }
 }
 

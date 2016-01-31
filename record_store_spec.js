@@ -139,6 +139,11 @@ describe('Record Collector', function(){
     store1.addRecord(record3);
 
     collector1.buy(store1, record1);
+    expect(collector1.collection[0].artist).to.equal('Rihanna');
+
     collector1.sell(store1, record1);
+
+    expect(collector1.collection).to.be.empty;
+    expect(store1.inventory[2].title).to.equal('Anti');
   });
 });
